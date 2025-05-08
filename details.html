@@ -90,7 +90,7 @@
   <div id="countdownModal">
     <div id="countdownContent">
       <h2>Collapsing the system in:</h2>
-      <div id="countdownTimer">00:30</div>
+      <div id="countdownTimer">00:10</div>
     </div>
   </div>
 
@@ -127,7 +127,7 @@
 
       setTimeout(() => {
         countdownModal.style.display = "flex";
-        let totalSeconds = 30;
+        let totalSeconds = 10;
         const interval = setInterval(() => {
           totalSeconds--;
           let minutes = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
