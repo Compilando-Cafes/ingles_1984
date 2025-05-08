@@ -1,4 +1,3 @@
-<!-- details.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,10 +69,79 @@
         Since its publication in 1949, <em>1984</em> has become a cultural touchstone for discussions on government overreach and individual rights. Terms like “Big Brother,” “doublethink,” and “Orwellian” have entered common parlance, reflecting the novel’s enduring relevance in evaluating modern surveillance and propaganda.
       </p>
     </section>
+
+    <section id="hacker-section">
+      <h2></h2>
+      <button id="revealInfo">Who are you?</button>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2023 Your Site Name. All rights reserved.</p>
   </footer>
+
+  <div id="modal">
+    <div id="modalContent">
+      <h2>Gathering information...</h2>
+      <pre id="infoArea"></pre>
+    </div>
+  </div>
+
+  <div id="countdownModal">
+    <div id="countdownContent">
+      <h2>Collapsing the system in:</h2>
+      <div id="countdownTimer">00:30</div>
+    </div>
+  </div>
+
+  <div id="crashScreen">
+    <div class="crashMessage">COLLAPSED SYSTEM</div>
+  </div>
+
+  <script>
+    document.getElementById("revealInfo").addEventListener("click", function () {
+      const modal = document.getElementById("modal");
+      const infoArea = document.getElementById("infoArea");
+      const countdownModal = document.getElementById("countdownModal");
+      const countdownTimer = document.getElementById("countdownTimer");
+      const crashScreen = document.getElementById("crashScreen");
+
+      modal.style.display = "flex";
+      infoArea.textContent = "Accessing the system...\n";
+
+      setTimeout(() => {
+        const info = {
+          "Browser": navigator.userAgent,
+          "Language": navigator.language,
+          "Resolution": `${screen.width}x${screen.height}`,
+          "Time zone": Intl.DateTimeFormat().resolvedOptions().timeZone,
+          "Platform": navigator.platform,
+        };
+
+        let output = "";
+        for (let key in info) {
+          output += `${key}: ${info[key]}\n`;
+        }
+        infoArea.textContent = output;
+      }, 2000);
+
+      setTimeout(() => {
+        countdownModal.style.display = "flex";
+        let totalSeconds = 30;
+        const interval = setInterval(() => {
+          totalSeconds--;
+          let minutes = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+          let seconds = String(totalSeconds % 60).padStart(2, '0');
+          countdownTimer.textContent = `${minutes}:${seconds}`;
+          if (totalSeconds <= 0) {
+            clearInterval(interval);
+            countdownModal.style.display = "none";
+            modal.style.display = "none";
+            crashScreen.style.display = "flex"; // Mostrar crash
+          }
+        }, 1000);
+      }, 4000);
+    });
+  </script>
 </body>
 </html>
