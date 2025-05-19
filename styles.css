@@ -87,6 +87,12 @@ header h1 {
   text-shadow: 0 0 10px red;
 }
 
+p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+
 /* Estilo para enlaces de navegación */
 nav ul li a {
   color: #ffffff;
@@ -333,13 +339,20 @@ ul li strong {
   right: 1rem;
   background: rgba(255, 0, 0, 0.8);
   color: white;
-  padding: 1rem;
+  padding: 1rem; 
   font-weight: bold;
   z-index: 9999;
   border-radius: 4px;
+    margin-bottom: 0rem;
+  line-height: 1;
 }
 .alert-hidden {
   display: none;
+    margin-bottom: 0.5rem;
+
+}
+#alert-box p {
+  margin: 0;
 }
 
 
