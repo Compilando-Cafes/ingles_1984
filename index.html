@@ -24,6 +24,9 @@
   </nav>
 
   <main>
+    <div id="alert-box" class="alert-hidden">
+  <p>⚠️ Suspicious activity detected. You are now being monitored.</p>
+</div>
     <section id="book-overview">
       <h2>About the Book</h2>
       <p>
@@ -33,7 +36,7 @@
       </p>
       <button class="resistance-button" onclick="location.href='details.html'">JOIN THE RESISTANCE</button>
     </section>
-
+    
     <section id="author">
       <h2>About the Author</h2>
       <p>
@@ -48,6 +51,11 @@
   <footer>
     <p>&copy; 2025 Compilando Cafés. All rights reserved.</p>
   </footer>
-</body>
+  <script>
+      setTimeout(() => {
+  document.getElementById("alert-box").classList.remove("alert-hidden");
+}, 5000);
+  </script>
+  </body>
 
 </html>
