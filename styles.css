@@ -18,6 +18,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   text-shadow: none;
+  cursor: url('img/ojo.png') 16 16, auto;
 }
 
 /* Links */
